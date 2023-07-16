@@ -121,15 +121,6 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        rob1_typhoon_extruder:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        rob1_typhoon_extruder_base:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         rob2_base:
           Alpha: 1
           Show Axes: false
@@ -186,15 +177,6 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        rob2_typhoon_extruder:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        rob2_typhoon_extruder_base:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         world:
           Alpha: 1
           Show Axes: false
@@ -236,9 +218,6 @@ Visualization Manager:
           Value: true
         rob1_tool0:
           Value: true
-        rob1_typhoon_extruder:
-          Value: true
-        rob1_typhoon_extruder_base:
           Value: true
         rob2_base:
           Value: true
@@ -264,10 +243,7 @@ Visualization Manager:
           Value: true
         rob2_tool0:
           Value: true
-        rob2_typhoon_extruder:
-          Value: true
-        rob2_typhoon_extruder_base:
-          Value: true
+
         world:
           Value: true
       Marker Alpha: 1
@@ -293,9 +269,6 @@ Visualization Manager:
                               rob1_flange:
                                 rob1_tool0:
                                   {}
-                                rob1_typhoon_extruder_base:
-                                  rob1_typhoon_extruder:
-                                    {}
             rob2_pedestal_base:
               rob2_pedestal_top:
                 rob2_base_link:
@@ -310,9 +283,6 @@ Visualization Manager:
                               rob2_flange:
                                 rob2_tool0:
                                   {}
-                                rob2_typhoon_extruder_base:
-                                  rob2_typhoon_extruder:
-                                    {}
       Update Interval: 0
       Value: true
   Enabled: true
