@@ -3,7 +3,7 @@
 	<xacro:macro name="za_tool_macro" params="prefix tool:='tool0'" >
 
 		<xacro:include filename="$(find za_description)/urdf/za_macro.xacro" />
-		<xacro:za_macro prefix="${prefix}" />
+		<xacro:za_macro prefix="${prefix}"/>
 
 		<xml:property name="var" value="typhoon_extruder"/>
 		<xacro:if value="${tool == 'typhoon_extruder'}">
