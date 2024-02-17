@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:property name="tcp_trans" value="0.08613 0.0 -0.159" />
-    <xacro:property name="tcp_rot"  value="0.0 ${pi} 0.0" />
+  <xacro:property name="tcp_trans" value="0.08613 0.0 -0.159" />
+  <xacro:property name="tcp_rot"  value="0.0 ${pi} 0.0" />
 
 	<xacro:macro name="typhoon_extruder_macro" params="prefix">
 
@@ -40,3 +40,4 @@
 
 	</xacro:macro>
 </robot>
+
