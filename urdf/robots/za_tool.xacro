@@ -2,7 +2,12 @@
 <robot name="za" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:arg name="prefix" default="" />
   <xacro:arg name="tool" default="typhoon_extruder" />
-  <xacro:include filename="$(find hydra_description)/urdf/robots/za_tool_macro.xacro" />
+
+  <!-- ros2_control parameters-->
+  <xacro:arg name="use_mock_hardware" default="true"/>
+  <xacro:arg name="include_hardware" default="true"/>
+  
+  <xacro:include filename="$(find hydra_description)/urdf/robots/za_tool_macro.xacro"/>
   <xacro:za_tool_macro prefix="$(arg prefix)" tool="$(arg tool)"/>
   
   <!-- 'world' frame: default pose reference frame -->
@@ -13,13 +18,10 @@
     <parent link="world"/>
     <child link="$(arg prefix)base_link"/>
   </joint>
-  
-  <!-- Gazebo plugin for ROS Control -->
-  <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <controlPeriod>0.001</controlPeriod>
-      <robotSimType>za_gazebo/ZaHWSim</robotSimType>
-    </plugin>
-    <self_collide>true</self_collide>
-  </gazebo>
+
+  <xacro:if value="$(arg include_hardware)">
+    <xacro:include filename="$(find za_description)/urdf/za.ros2_control.xacro"/>
+    <xacro:za_ros2_control prefix="$(arg prefix)" use_mock_hardware="$(arg use_mock_hardware)"/>
+  </xacro:if>
+
 </robot>
