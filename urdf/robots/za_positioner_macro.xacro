@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:macro name="za_positioner_macro" params="prefix" >
+
+		<xacro:include filename="$(find za_description)/urdf/za_macro.xacro" />
+		<xacro:za_macro prefix="${prefix}" />
+
+    <!-- link list -->
+    <link name="${prefix}positioner_base">
+      <visual>
+        <geometry>
+          <mesh filename="package://hydra_description/meshes/visual/hydra_positioner.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://hydra_description/meshes/collision/hydra_positioner_collision.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0.000000 0.000000 0.006349"/>
+        <mass value="27.67"/>
+        <inertia ixx="1.929232" ixy="0.000000" ixz="0.000000" iyy="1.929232" iyz="0.000000" izz="3.857721"/>
+      </inertial>
+    </link>
+    <link name="${prefix}positioner"/>
+
+    <!-- joint list -->
+    <joint name="${prefix}flange_positioner_base" type="fixed">
+      <origin rpy="0 ${pi/2} 0" xyz="0 0 0"/>
+      <parent link="${prefix}flange"/>
+      <child link="${prefix}positioner_base"/>
+    </joint>
+    <joint name="${prefix}positioner_tcp_joint" type="fixed">
+      <origin rpy="0.0 0.0 0.0" xyz="0 0 0.03175"/>
+      <parent link="${prefix}positioner_base"/>
+      <child link="${prefix}positioner"/>
+    </joint>
+    
+  </xacro:macro>
+</robot>
