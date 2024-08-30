@@ -14,12 +14,4 @@
     <child link="$(arg prefix)base_link"/>
   </joint>
   
-  <!-- Gazebo plugin for ROS Control -->
-  <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <controlPeriod>0.001</controlPeriod>
-      <robotSimType>za_gazebo/ZaHWSim</robotSimType>
-    </plugin>
-    <self_collide>true</self_collide>
-  </gazebo>
 </robot>
