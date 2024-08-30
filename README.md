@@ -1,5 +1,6 @@
-
 # `hydra_description` package
+
+[![license - apache 2.0](https://img.shields.io/:license-Apache%202.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)
 
 This ROS package provides URDF files and meshes for the Hydra multi-robot
 system. See this repository's branches for different variants of the multi robot
