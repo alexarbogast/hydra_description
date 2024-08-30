@@ -8,18 +8,10 @@
   <!-- 'world' frame: default pose reference frame -->
   <link name="world" />
   <joint name="world-$(arg prefix)base_link" type="fixed">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <axis xyz="0 0 1"/>
     <parent link="world"/>
     <child link="$(arg prefix)base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
   </joint>
   
-  <!-- Gazebo plugin for ROS Control -->
-  <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <controlPeriod>0.001</controlPeriod>
-      <robotSimType>za_gazebo/ZaHWSim</robotSimType>
-    </plugin>
-    <self_collide>true</self_collide>
-  </gazebo>
 </robot>
