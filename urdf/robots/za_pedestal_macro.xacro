@@ -4,9 +4,9 @@
   <xacro:property name="ped_height" value="0.585"/>
   <xacro:property name="base_height" value="0.2"/>
 
-	<xacro:macro name="za_pedestal_macro" params="prefix tool:='tool0'" >
-		<xacro:include filename="$(find hydra_description)/urdf/robots/za_tool_macro.xacro" />
-		<xacro:za_tool_macro prefix="${prefix}" tool="${tool}"/>
+  <xacro:macro name="za_pedestal_macro" params="prefix tool:='tool0'" >
+    <xacro:include filename="$(find hydra_description)/urdf/robots/za_tool_macro.xacro" />
+    <xacro:za_tool_macro prefix="${prefix}" tool="${tool}"/>
 
     <link name="${prefix}pedestal_base">
       <visual>
@@ -32,7 +32,7 @@
         </geometry>
       </collision>            
     </link>
-		<link name="${prefix}pedestal_top"/>
+    <link name="${prefix}pedestal_top"/>
 
     <joint name="${prefix}pedestal_base-${prefix}pedestal" type="fixed">
       <origin rpy="0.0 0.0 0.0" xyz="0 0 ${base_height}"/>
@@ -49,5 +49,5 @@
       <child  link="${prefix}base_link"/>
     </joint>
 
-	</xacro:macro>
+  </xacro:macro>
 </robot>
