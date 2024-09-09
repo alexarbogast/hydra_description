@@ -34,19 +34,19 @@
     </link>
     <link name="${prefix}pedestal_top"/>
 
-    <joint name="${prefix}pedestal_base-${prefix}pedestal" type="fixed">
-      <origin rpy="0.0 0.0 0.0" xyz="0 0 ${base_height}"/>
-      <parent link="${prefix}pedestal_base"/>
-      <child  link="${prefix}pedestal"/>
-    </joint>
-    <joint name="${prefix}pedestal-${prefix}pedestal_top" type="fixed">
-      <origin rpy="0.0 0.0 0.0" xyz="0 0 ${ped_height}"/>
-      <parent link="${prefix}pedestal"/>
+    <joint name="${prefix}base_link-${prefix}pedestal_top" type="fixed">
+      <parent link="${prefix}base_link"/>
       <child  link="${prefix}pedestal_top"/>
     </joint>
-    <joint name="${prefix}pedestal_top-${prefix}base_link" type="fixed">
+    <joint name="${prefix}pedestal_top-${prefix}pedestal" type="fixed">
+      <origin rpy="0.0 0.0 0.0" xyz="0 0 ${-ped_height}"/>
       <parent link="${prefix}pedestal_top"/>
-      <child  link="${prefix}base_link"/>
+      <child  link="${prefix}pedestal"/>
+    </joint>
+    <joint name="${prefix}pedestal-${prefix}pedestal_base" type="fixed">
+      <origin rpy="0.0 0.0 0.0" xyz="0 0 ${-base_height}"/>
+      <parent link="${prefix}pedestal"/>
+      <child  link="${prefix}pedestal_base"/>
     </joint>
 
   </xacro:macro>
