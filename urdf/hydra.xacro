@@ -9,12 +9,7 @@
   <xacro:arg name="include_hardware" default="true"/>
 
   <xacro:include filename="$(find hydra_description)/urdf/hydra_macro.xacro"/>
-  <xacro:hydra_macro prefix="$(arg prefix)" 
-    radius="${radius}"
-    tool="${tool}"
-    include_hardware="$(arg include_hardware)"
-    use_mock_hardware="$(arg use_mock_hardware)"
-  />
+  <xacro:hydra_macro prefix="$(arg prefix)" radius="${radius}" tool="${tool}"/>
 
   <link name="world"/>
   <joint name="world-$(arg prefix)hydra_base" type="fixed">
@@ -24,9 +19,15 @@
 
   <link name="work_object"/>
   <joint name="world-$(arg prefix)work_object" type="fixed">
-    <origin xyz="0 0 0.8" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
     <parent link="world"/>
     <child  link="$(arg prefix)work_object"/>
   </joint>
+
+  <xacro:if value="$(arg include_hardware)">
+    <xacro:include filename="$(find za_description)/urdf/za.ros2_control.xacro"/>
+    <xacro:za_ros2_control prefix="$(arg prefix)rob1_" use_mock_hardware="$(arg use_mock_hardware)"/>
+    <xacro:za_ros2_control prefix="$(arg prefix)rob2_" use_mock_hardware="$(arg use_mock_hardware)"/>
+  </xacro:if>
 </robot>
 
