@@ -9,14 +9,15 @@
 
   <link name="world"/>
   <joint name="world-$(arg prefix)hydra_base" type="fixed">
+    <origin xyz="0 0 0.785" rpy="0 0 0"/>
     <parent link="world"/>
     <child  link="$(arg prefix)hydra_base"/>
   </joint>
 
   <link name="work_object"/>
-  <joint name="world-$(arg prefix)work_object" type="fixed">
-    <origin xyz="0 0 0.8" rpy="0 0 0"/>
-    <parent link="world"/>
+  <joint name="$(arg prefix)hydra_base-$(arg prefix)work_object" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="$(arg prefix)hydra_base"/>
     <child  link="$(arg prefix)work_object"/>
   </joint>
 
