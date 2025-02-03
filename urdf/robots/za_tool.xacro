@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <robot name="za" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:arg name="prefix" default="" />
-  <xacro:arg name="tool" default="typhoon_extruder" />
+  <xacro:arg name="tool" default="typhoon_extruder"/>
 
   <xacro:property name="tool_parameters_file" value="$(find hydra_description)/config/tool_parameters.yaml"/>
   <xacro:property name="tool_data" value="${xacro.load_yaml(tool_parameters_file)}"/>

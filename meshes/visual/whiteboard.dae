@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 4.3.2 commit date:2024-12-16, commit time:21:10, hash:32f5fdce0a0a</authoring_tool>
     </contributor>
-    <created>2025-02-03T09:42:43</created>
-    <modified>2025-02-03T09:42:43</modified>
+    <created>2025-02-03T13:50:47</created>
+    <modified>2025-02-03T13:50:47</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -134,7 +134,7 @@
   <library_visual_scenes>
     <visual_scene id="Scene" name="Scene">
       <node id="whiteboard_assembly" name="whiteboard_assembly" type="NODE">
-        <matrix sid="transform">-4.37114e-10 -0.01 0 0 0.01 -4.37114e-10 0 0 0 0 0.01 0 0 0 0 1</matrix>
+        <matrix sid="transform">-4.37114e-10 -0.01 0 0 0.01 -4.37114e-10 0 0 0 0 0.01 -0.1 0 0 0 1</matrix>
         <instance_geometry url="#whiteboard_assembly_001-mesh" name="whiteboard_assembly">
           <bind_material>
             <technique_common>

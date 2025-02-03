@@ -3,7 +3,7 @@
   <xacro:arg name="prefix" default=""/>
   <xacro:arg name="tool"   default="typhoon_extruder"/>
 
-  <xacro:property name="tool_parameters_file"  value="$(find hydra_description)/config/tool_parameters.yaml"/>
+  <xacro:property name="tool_parameters_file" value="$(find hydra_description)/config/tool_parameters.yaml"/>
   <xacro:property name="kinematic_parameters_file" value="$(find hydra_description)/config/kinematic_parameters.yaml"/>
 
   <xacro:include filename="$(find hydra_description)/urdf/hydra_macro.xacro"/>
@@ -21,7 +21,5 @@
     <parent link="world"/>
     <child  link="$(arg prefix)hydra_base"/>
   </joint>
-
-
 
 </robot>
