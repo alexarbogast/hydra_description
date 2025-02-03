@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="marker_tool_macro" params="prefix tool_data">
+    <xacro:property name="tcp_xyz" value="${tool_data['x']} ${tool_data['y']} ${tool_data['z']}"/>
+    <xacro:property name="tcp_rpy" value="${tool_data['roll']} ${tool_data['pitch']} ${tool_data['yaw']}"/>
+
+    <!-- link list -->
+    <link name="${prefix}marker_tool">
+      <visual>
+        <geometry>
+          <mesh filename="package://hydra_description/meshes/visual/marker_tool.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://hydra_description/meshes/collision/marker_tool.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <link name="${prefix}marker_tool_tcp" />
+
+    <!-- attach marker to flange -->
+    <joint name="${prefix}marker_attach_joint" type="fixed">
+      <parent link="${prefix}flange"/>
+      <child link="${prefix}marker_tool"/>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+    </joint>
+    <joint name="${prefix}marker_marker_base" type="fixed">
+      <parent link="${prefix}marker_tool"/>
+      <child link="${prefix}marker_tool_tcp"/>
+      <origin xyz="${tcp_xyz}" rpy="${tcp_rpy}"/>
+    </joint>
+
+  </xacro:macro>
+</robot>

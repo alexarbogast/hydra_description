@@ -1,11 +1,19 @@
 <?xml version="1.0" ?>
 <robot name="hydra" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:arg name="prefix" default=""/>
-  <xacro:property name="radius" value="0.75"/>
-  <xacro:property name="tool" default="typhoon_extruder" />
+  <xacro:arg name="tool"   default="typhoon_extruder"/>
+
+  <xacro:property name="tool_parameters_file"  value="$(find hydra_description)/config/tool_parameters.yaml"/>
+  <xacro:property name="kinematic_parameters_file" value="$(find hydra_description)/config/kinematic_parameters.yaml"/>
 
   <xacro:include filename="$(find hydra_description)/urdf/hydra_macro.xacro"/>
-  <xacro:hydra_macro prefix="$(arg prefix)" radius="${radius}" tool="${tool}"/>
+  <xacro:hydra_macro
+    prefix="$(arg prefix)"
+    tool_parameters_file="${tool_parameters_file}"
+    kinematic_parameters_file="${kinematic_parameters_file}"
+    rob1_tool="$(arg tool)"
+    rob2_tool="$(arg tool)"
+  />
 
   <link name="world"/>
   <joint name="world-$(arg prefix)hydra_base" type="fixed">
@@ -14,11 +22,6 @@
     <child  link="$(arg prefix)hydra_base"/>
   </joint>
 
-  <link name="work_object"/>
-  <joint name="$(arg prefix)hydra_base-$(arg prefix)work_object" type="fixed">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <parent link="$(arg prefix)hydra_base"/>
-    <child  link="$(arg prefix)work_object"/>
-  </joint>
+
 
 </robot>
