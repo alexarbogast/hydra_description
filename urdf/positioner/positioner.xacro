@@ -1,6 +1,11 @@
 <?xml version="1.0" ?>
 <robot name="hydra_positioner" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:arg name="prefix" default=""/>
+
+  <!-- ros2_control parameters-->
+  <xacro:arg name="use_mock_hardware" default="true"/>
+  <xacro:arg name="include_hardware" default="true"/>
+
   <xacro:include filename="$(find hydra_description)/urdf/positioner/positioner_macro.xacro"/>
   <xacro:positioner_macro prefix="$(arg prefix)"/>
 
@@ -9,4 +14,9 @@
     <parent link="world"/>
     <child link="$(arg prefix)positioner_static"/>
   </joint>
+
+  <xacro:if value="$(arg include_hardware)">
+    <xacro:include filename="$(find hydra_description)/urdf/positioner/positioner.ros2_control.xacro"/>
+    <xacro:positioner_ros2_control prefix="$(arg prefix)" use_mock_hardware="$(arg use_mock_hardware)"/>
+  </xacro:if>
 </robot>

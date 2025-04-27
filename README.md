@@ -11,9 +11,9 @@ system configuration.
 </p>
 
 > [!NOTE]
-> __`master`__ variant:
+> __`ros2`__ variant:
 >
-> The master branch contains the default setup: Three robots space evenly around
+> The ros2 branch contains the default setup: Three robots spaced evenly around
 > a 1-DOF positioner table.
 
 ## Installation
@@ -21,7 +21,7 @@ system configuration.
 First, create a catkin workspace.
 
 ```bash
-mkdir -p catkin_ws/src && cd catkin_ws/src
+mkdir -p colcon_ws/src && cd colcon_ws/src
 ```
 
 #### Dependencies
@@ -32,8 +32,11 @@ Install this package locally or, alternatively, clone it as a submodule in
 [za_ros](https://github.com/alexarbogast/za_ros) package.
 
 For `za_description` local installation:
+
 ```bash
 git clone git@github.com:alexarbogast/za_description.git
+cd za_description
+git checkout ros2
 ```
 #### Building the package
 
@@ -48,11 +51,10 @@ Build the ROS packages.
 
 ```bash
 cd ../
-catkin build
+colcon build
 ```
 
 ## Resources
 
 - http://wiki.ros.org/xacro
 - http://wiki.ros.org/urdf
-
