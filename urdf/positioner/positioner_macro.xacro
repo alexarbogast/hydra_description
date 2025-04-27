@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:property name="pos_stand_height" value="0.32853" />
+  <xacro:property name="pos_stand_height" value="0.32853"/>
 
   <xacro:macro name="positioner_macro" params="prefix">
 
@@ -46,15 +46,10 @@
     <link name="${prefix}positioner_static"/>
 
     <!-- joint list -->
-    <joint name="${prefix}pos_stand_base-rotary_table_base" type="fixed">
-      <parent link="${prefix}positioner_stand_base"/>
-      <child link="${prefix}rotary_table_base"/>
-      <origin rpy="0.0 0.0 0.0" xyz="0 0 ${pos_stand_height}"/>
-    </joint>
-    <joint name="${prefix}rotary_table_top_base" type="fixed">
-      <parent link="${prefix}rotary_table_base"/>
-      <child link="${prefix}rotary_table_top"/>
-      <origin rpy="0.0 0.0 0.0" xyz="0 0 0.183984"/>
+    <joint name="${prefix}positioner_static_joint" type="fixed">
+      <parent link="${prefix}positioner_static"/>
+      <child  link="${prefix}rotary_table_top"/>
+      <origin rpy="0.0 0.0 0.0" xyz="0 0 -0.03175"/>
     </joint>
     <joint name="${prefix}positioner_joint" type="continuous">
       <parent link="${prefix}rotary_table_top"/>
@@ -65,13 +60,18 @@
     </joint>
     <joint name="${prefix}positioner_tcp_joint" type="fixed">
       <parent link="${prefix}positioner_base"/>
-      <child link="${prefix}positioner"/>
+      <child  link="${prefix}positioner"/>
       <origin rpy="0.0 0.0 0.0" xyz="0 0 0.03175"/>
     </joint>
-    <joint name="${prefix}positioner_static_joint" type="fixed">
+    <joint name="${prefix}rotary_table_top-${prefix}rotary_table_base" type="fixed">
       <parent link="${prefix}rotary_table_top"/>
-      <child link="${prefix}positioner_static"/>
-      <origin rpy="0.0 0.0 0.0" xyz="0 0 0.03175"/>
+      <child  link="${prefix}rotary_table_base"/>
+      <origin rpy="0.0 0.0 0.0" xyz="0 0 -0.183984"/>
+      </joint>
+    <joint name="${prefix}rotary_table_base-${prefix}pos_stand_base" type="fixed">
+      <parent link="${prefix}rotary_table_base"/>
+      <child  link="${prefix}positioner_stand_base"/>
+      <origin rpy="0.0 0.0 0.0" xyz="0 0 ${-pos_stand_height}"/>
     </joint>
 
   </xacro:macro>

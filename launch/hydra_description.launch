@@ -1,12 +1,15 @@
 <?xml version="1.0"?>
 <launch>
-
+  <!-- Robot Customization -->
   <arg name="model" default="hydra.xacro"/>
+  <arg name="tool" default="typhoon_extruder" doc="One of 'tool0', 'typhoon_extruder'"/>
+
   <arg name="gui" default="true" />
   <arg name="rvizconfig" default="$(find hydra_description)/rviz/hydra_model_viewer.rviz" />
   <arg name="load_robot_description" default="true"/>
 
-  <param if="$(arg load_robot_description)" name="robot_description" command="xacro  '$(find hydra_description)/urdf/$(arg model)'"/>
+  <param if="$(arg load_robot_description)" name="robot_description" command="xacro
+    '$(find hydra_description)/urdf/$(arg model)' tool:=$(arg tool)"/>
 
   <node if="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
   <node unless="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />

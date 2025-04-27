@@ -1,0 +1,26 @@
+rob1:
+  typhoon_extruder:
+    x: 0.08613
+    y: 0.0
+    z: -0.159
+    roll: 0.0
+    pitch: 3.14159265359
+    yaw: 0.0
+
+rob2:
+  typhoon_extruder:
+    x: 0.08613
+    y: 0.0
+    z: -0.159
+    roll: 0.0
+    pitch: 3.14159265359
+    yaw: 0.0
+
+rob3:
+  typhoon_extruder:
+    x: 0.08613
+    y: 0.0
+    z: -0.159
+    roll: 0.0
+    pitch: 3.14159265359
+    yaw: 0.0

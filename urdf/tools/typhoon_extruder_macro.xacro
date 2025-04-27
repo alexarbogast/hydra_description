@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:property name="tcp_trans" value="0.08613 0.0 -0.159" />
-  <xacro:property name="tcp_rot"  value="0.0 ${pi} 0.0" />
 
-  <xacro:macro name="typhoon_extruder_macro" params="prefix">
+  <xacro:macro name="typhoon_extruder_macro" params="prefix tool_data">
+    <xacro:property name="tcp_xyz" value="${tool_data['x']} ${tool_data['y']} ${tool_data['z']}"/>
+    <xacro:property name="tcp_rpy" value="${tool_data['roll']} ${tool_data['pitch']} ${tool_data['yaw']}"/>
 
     <!-- link list -->
     <link name="${prefix}typhoon_extruder">
@@ -17,24 +17,19 @@
           <mesh filename="package://hydra_description/meshes/collision/typhoon_extruder_collision.stl"/>
         </geometry>
       </collision>
-      <inertial>
-          <origin xyz="0.065346 0.000016 -0.031645"/>
-          <mass value="1.75"/>
-        <inertia ixx="0.006265" ixy="0.000003" ixz="-0.000805" iyy="0.006649" iyz="0.000002" izz="0.001704"/>
-      </inertial>
     </link>
-    <link name="${prefix}typhoon_extruder_tcp" />
+    <link name="${prefix}typhoon_extruder_tcp"/>
 
     <!-- attach extruder to flange -->
     <joint name="${prefix}extruder_attach_joint" type="fixed">
       <parent link="${prefix}flange"/>
       <child link="${prefix}typhoon_extruder"/>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
     </joint>
     <joint name="${prefix}extruder_extruder_base" type="fixed">
       <parent link="${prefix}typhoon_extruder"/>
       <child link="${prefix}typhoon_extruder_tcp"/>
-      <origin xyz="${tcp_trans}" rpy="${tcp_rot}" />
+      <origin xyz="${tcp_xyz}" rpy="${tcp_rpy}"/>
     </joint>
 
   </xacro:macro>

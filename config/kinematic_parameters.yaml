@@ -1,0 +1,31 @@
+rob1_base:
+  x: -0.475    # -r * sin(π/6)
+  y: -0.822724 # -r * sin(π/6)
+  z: 0.585
+  roll: 0
+  pitch: 0
+  yaw: 1.047198 # π/3
+
+rob2_base:
+  x: 0.95 # r
+  y: 0
+  z: 0.585
+  roll: 0
+  pitch: 0
+  yaw: 3.141593 # π
+
+rob3_base:
+  x: -0.475   # -r * sin(π/6)
+  y: 0.822724 #  r * sin(π/6)
+  z: 0.585
+  roll: 0
+  pitch: 0
+  yaw: -1.047198 # -π/3
+
+positioner:
+  x: 0
+  y: 0
+  z: 0.54426
+  roll: 0
+  pitch: 0
+  yaw: 0
