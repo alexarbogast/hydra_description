@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:property name="pos_stand_height" value="0.32853" />
+  <xacro:property name="pos_stand_height" value="0.32853"/>
 
   <xacro:macro name="positioner_macro" params="prefix">
 

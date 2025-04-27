@@ -4,7 +4,7 @@
   <xacro:include filename="$(find hydra_description)/urdf/positioner/positioner_macro.xacro"/>
   <xacro:positioner_macro prefix="$(arg prefix)"/>
 
-  <link name="world" />
+  <link name="world"/>
   <joint name="world-$(arg prefix)hydra_positioner" type="fixed">
     <parent link="world"/>
     <child link="$(arg prefix)positioner_stand_base"/>

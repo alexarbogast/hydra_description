@@ -1,20 +1,20 @@
 <?xml version="1.0" ?>
 <robot name="za" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:arg name="prefix" default="" />
+  <xacro:arg name="prefix" default=""/>
   <xacro:arg name="tool" default="typhoon_extruder"/>
 
   <xacro:property name="tool_parameters_file" value="$(find hydra_description)/config/tool_parameters.yaml"/>
   <xacro:property name="tool_data" value="${xacro.load_yaml(tool_parameters_file)}"/>
 
-  <xacro:include filename="$(find hydra_description)/urdf/robots/za_tool_macro.xacro" />
+  <xacro:include filename="$(find hydra_description)/urdf/robots/za_tool_macro.xacro"/>
   <xacro:za_tool_macro prefix="$(arg prefix)" tool_data="${tool_data['rob1']}" tool="$(arg tool)"/>
-  
+
   <!-- 'world' frame: default pose reference frame -->
-  <link name="world" />
+  <link name="world"/>
   <joint name="world-$(arg prefix)base_link" type="fixed">
     <parent link="world"/>
     <child link="$(arg prefix)base_link"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
-  
+
 </robot>

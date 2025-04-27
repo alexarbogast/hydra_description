@@ -18,13 +18,13 @@
         </geometry>
       </collision>
     </link>
-    <link name="${prefix}marker_tool_tcp" />
+    <link name="${prefix}marker_tool_tcp"/>
 
     <!-- attach marker to flange -->
     <joint name="${prefix}marker_attach_joint" type="fixed">
       <parent link="${prefix}flange"/>
       <child link="${prefix}marker_tool"/>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
     </joint>
     <joint name="${prefix}marker_marker_base" type="fixed">
       <parent link="${prefix}marker_tool"/>
