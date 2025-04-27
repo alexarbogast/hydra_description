@@ -3,6 +3,10 @@
   <xacro:arg name="prefix" default=""/>
   <xacro:arg name="tool" default="typhoon_extruder"/>
 
+  <!-- ros2_control parameters-->
+  <xacro:arg name="use_mock_hardware" default="true"/>
+  <xacro:arg name="include_hardware" default="true"/>
+
   <xacro:property name="tool_parameters_file" value="$(find hydra_description)/config/tool_parameters.yaml"/>
   <xacro:property name="tool_data" value="${xacro.load_yaml(tool_parameters_file)}"/>
 
@@ -16,4 +20,9 @@
     <child link="$(arg prefix)base_link"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
+
+  <xacro:if value="$(arg include_hardware)">
+    <xacro:include filename="$(find za_description)/urdf/za.ros2_control.xacro"/>
+    <xacro:za_ros2_control prefix="$(arg prefix)" use_mock_hardware="$(arg use_mock_hardware)"/>
+  </xacro:if>
 </robot>

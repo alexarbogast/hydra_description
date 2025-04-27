@@ -11,7 +11,7 @@ system configuration.
 </p>
 
 > [!NOTE]
-> __`ampf`__ variant:
+> __`ampf_ros2`__ variant:
 >
 > The ampf branch contains the setup of the physical system at
 > [ampf](https://ampf.research.gatech.edu/).
@@ -21,7 +21,7 @@ system configuration.
 First, create a catkin workspace.
 
 ```bash
-mkdir -p catkin_ws/src && cd catkin_ws/src
+mkdir -p colcon_ws/src && cd colcon_ws/src
 ```
 
 #### Dependencies
@@ -32,8 +32,11 @@ Install this package locally or, alternatively, clone it as a submodule in
 [za_ros](https://github.com/alexarbogast/za_ros) package.
 
 For `za_description` local installation:
+
 ```bash
 git clone git@github.com:alexarbogast/za_description.git
+cd za_description
+git checkout ros2
 ```
 #### Building the package
 
@@ -48,11 +51,10 @@ Build the ROS packages.
 
 ```bash
 cd ../
-catkin build
+colcon build
 ```
 
 ## Resources
 
 - http://wiki.ros.org/xacro
 - http://wiki.ros.org/urdf
-
