@@ -1,7 +1,11 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.5)
 project(hydra_description)
 
-find_package(catkin REQUIRED)
-catkin_package(CATKIN_DEPENDS xacro)
+find_package(ament_cmake REQUIRED)
 
-install(DIRECTORY urdf DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+install(
+  DIRECTORY config launch meshes rviz urdf
+  DESTINATION share/${PROJECT_NAME}
+)
+
+ament_package()
