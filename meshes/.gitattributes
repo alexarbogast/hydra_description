@@ -1,4 +1,4 @@
 # Esp. .step and .FCStd files look like text to git; force treatment
 # as binaries to avoid giant diffs
-*.dae filter=lfs diff=lfs merge=lfs -text
-*.stl filter=lfs diff=lfs merge=lfs -text
+*.dae binary
+*.stl binary
