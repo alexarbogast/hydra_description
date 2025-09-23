@@ -30,5 +30,9 @@
     <xacro:include filename="$(find za_description)/urdf/za.ros2_control.xacro"/>
     <xacro:za_ros2_control prefix="$(arg prefix)rob1_" use_mock_hardware="$(arg use_mock_hardware)"/>
     <xacro:za_ros2_control prefix="$(arg prefix)rob2_" use_mock_hardware="$(arg use_mock_hardware)"/>
+    <xacro:za_ros2_control prefix="$(arg prefix)rob3_" use_mock_hardware="$(arg use_mock_hardware)"/>
+
+    <xacro:include filename="$(find hydra_description)/urdf/positioner/positioner.ros2_control.xacro"/>
+    <xacro:positioner_ros2_control prefix="$(arg prefix)" use_mock_hardware="$(arg use_mock_hardware)"/>
   </xacro:if>
 </robot>

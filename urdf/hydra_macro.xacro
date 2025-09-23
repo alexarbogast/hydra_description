@@ -54,7 +54,7 @@
       <child  link="${prefix}rob3_base_link"/>
       <origin xyz="${rob3_base_xyz}" rpy="${rob3_base_rpy}"/>
     </joint>
-    <joint name="${prefix}hydra_base-$(arg prefix)positioner_static" type="fixed">
+    <joint name="${prefix}hydra_base-${prefix}positioner_static" type="fixed">
       <parent link="${prefix}hydra_base"/>
       <child  link="${prefix}positioner_static"/>
       <origin xyz="${wobj_xyz}" rpy="${wobj_rpy}"/>
