@@ -1,13 +1,13 @@
 rob1_base:
-  x: -0.475    # -r * sin(π/6)
-  y: -0.822724 # -r * sin(π/6)
+  x: -0.4     # -r * sin(π/6)
+  y: -0.69282 # -r * cos(π/6)
   z: 0.585
   roll: 0
   pitch: 0
   yaw: 1.047198 # π/3
 
 rob2_base:
-  x: 0.95 # r
+  x: 0.8 # r
   y: 0
   z: 0.585
   roll: 0
@@ -15,8 +15,8 @@ rob2_base:
   yaw: 3.141593 # π
 
 rob3_base:
-  x: -0.475   # -r * sin(π/6)
-  y: 0.822724 #  r * sin(π/6)
+  x: -0.4    # -r * sin(π/6)
+  y: 0.69282  #  r * cos(π/6)
   z: 0.585
   roll: 0
   pitch: 0
@@ -25,7 +25,7 @@ rob3_base:
 positioner:
   x: 0
   y: 0
-  z: 0.54426
+  z: 0.65
   roll: 0
   pitch: 0
   yaw: 0
