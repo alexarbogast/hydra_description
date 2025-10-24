@@ -17,7 +17,7 @@ rob2_base:
 whiteboard:
   x: 0
   y: 0
-  z: -0.025
+  z: 0.12
   roll: 0
   pitch: 0
   yaw: 0
