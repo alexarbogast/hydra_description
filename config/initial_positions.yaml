@@ -1,0 +1,9 @@
+# Default initial positions for za's ros2_control fake system
+
+initial_positions:
+  joint_1: 0.0
+  joint_2: 0.23
+  joint_3: 1.0
+  joint_4: 0.0
+  joint_5: -1.23
+  joint_6: 0.0

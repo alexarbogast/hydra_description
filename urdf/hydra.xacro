@@ -6,6 +6,9 @@
   <!-- ros2_control parameters-->
   <xacro:arg name="use_mock_hardware" default="true"/>
   <xacro:arg name="include_hardware" default="true"/>
+  <xacro:arg name="initial_positions_file"
+    default="$(find hydra_description)/config/initial_positions.yaml"/>
+
 
   <xacro:property name="tool_parameters_file" value="$(find hydra_description)/config/tool_parameters.yaml"/>
   <xacro:property name="kinematic_parameters_file" value="$(find hydra_description)/config/kinematic_parameters.yaml"/>
@@ -28,7 +31,11 @@
 
   <xacro:if value="$(arg include_hardware)">
     <xacro:include filename="$(find za_description)/urdf/za.ros2_control.xacro"/>
-    <xacro:za_ros2_control prefix="$(arg prefix)rob1_" use_mock_hardware="$(arg use_mock_hardware)"/>
-    <xacro:za_ros2_control prefix="$(arg prefix)rob2_" use_mock_hardware="$(arg use_mock_hardware)"/>
+    <xacro:za_ros2_control prefix="$(arg prefix)rob1_"
+      use_mock_hardware="$(arg use_mock_hardware)"
+      initial_positions_file="$(arg initial_positions_file)"/>
+    <xacro:za_ros2_control prefix="$(arg prefix)rob2_"
+      use_mock_hardware="$(arg use_mock_hardware)"
+      initial_positions_file="$(arg initial_positions_file)"/>
   </xacro:if>
 </robot>
