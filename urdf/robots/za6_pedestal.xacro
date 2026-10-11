@@ -10,8 +10,8 @@
   <xacro:property name="tool_parameters_file" value="$(find hydra_description)/config/tool_parameters.yaml"/>
   <xacro:property name="tool_data" value="${xacro.load_yaml(tool_parameters_file)}"/>
 
-  <xacro:include filename="$(find hydra_description)/urdf/robots/za_pedestal_macro.xacro"/>
-  <xacro:za_pedestal_macro prefix="$(arg prefix)" tool_data="${tool_data['rob1']}" tool="$(arg tool)"/>
+  <xacro:include filename="$(find hydra_description)/urdf/robots/za6_pedestal_macro.xacro"/>
+  <xacro:za6_pedestal_macro prefix="$(arg prefix)" tool_data="${tool_data['rob1']}" tool="$(arg tool)"/>
 
   <!-- 'world' frame - default pose reference frame -->
   <link name="world"/>
@@ -21,7 +21,7 @@
   </joint>
 
   <xacro:if value="$(arg include_hardware)">
-    <xacro:include filename="$(find za_description)/urdf/za.ros2_control.xacro"/>
-    <xacro:za_ros2_control prefix="$(arg prefix)" use_mock_hardware="$(arg use_mock_hardware)"/>
+    <xacro:include filename="$(find za6_description)/urdf/za6.ros2_control.xacro"/>
+    <xacro:za6_ros2_control prefix="$(arg prefix)" use_mock_hardware="$(arg use_mock_hardware)"/>
   </xacro:if>
 </robot>

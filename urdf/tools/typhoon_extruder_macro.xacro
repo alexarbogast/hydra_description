@@ -24,10 +24,10 @@
     <joint name="${prefix}extruder_attach_joint" type="fixed">
       <parent link="${prefix}flange"/>
       <child link="${prefix}typhoon_extruder"/>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="${pi} ${-pi/2} 0"/>
     </joint>
-    <joint name="${prefix}extruder_extruder_base" type="fixed">
-      <parent link="${prefix}typhoon_extruder"/>
+    <joint name="${prefix}flange-extruder_tcp" type="fixed">
+      <parent link="${prefix}flange"/>
       <child link="${prefix}typhoon_extruder_tcp"/>
       <origin xyz="${tcp_xyz}" rpy="${tcp_rpy}"/>
     </joint>

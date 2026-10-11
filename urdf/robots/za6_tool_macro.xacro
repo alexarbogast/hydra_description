@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:macro name="za_tool_macro" params="prefix tool_data tool:='tool0'" >
+  <xacro:macro name="za6_tool_macro" params="prefix tool_data tool:='tool0'" >
 
-    <xacro:include filename="$(find za_description)/urdf/za_macro.xacro"/>
-    <xacro:za_macro prefix="${prefix}"/>
+    <xacro:include filename="$(find za6_description)/urdf/za6_macro.xacro"/>
+    <xacro:za6 prefix="${prefix}" tool0_trans="0 0 0" tool0_rot="0 0 0"/>
 
     <xml:property name="var" value="typhoon_extruder"/>
     <xacro:if value="${tool == 'typhoon_extruder'}">
