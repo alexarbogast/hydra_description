@@ -1,0 +1,5 @@
+repositories:
+  tormach_za_ros2_drivers:
+    type: git
+    url: https://github.com/alexarbogast/tormach_za_ros2_drivers.git
+    version: fix/prefix-grasp-link
