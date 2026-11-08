@@ -2,10 +2,13 @@
 <robot name="za" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:arg name="prefix" default=""/>
   <xacro:arg name="tool" default="typhoon_extruder"/>
-
-  <!-- ros2_control parameters-->
+  <xacro:arg name="include_ros2_control" default="false"/>
+  <xacro:arg name="ros2_control_name" default="hal_hw_interface"/>
   <xacro:arg name="use_mock_hardware" default="true"/>
-  <xacro:arg name="include_hardware" default="true"/>
+  <xacro:arg name="ros2_control_plugin"
+             default="hal_system_interface/HalSystemInterface"/>
+  <xacro:arg name="initial_positions_file"
+             default="$(find hydra_description)/config/initial_positions.yaml"/>
 
   <xacro:property name="tool_parameters_file" value="$(find hydra_description)/config/tool_parameters.yaml"/>
   <xacro:property name="tool_data" value="${xacro.load_yaml(tool_parameters_file)}"/>
@@ -13,15 +16,19 @@
   <xacro:include filename="$(find hydra_description)/urdf/robots/za6_pedestal_macro.xacro"/>
   <xacro:za6_pedestal_macro prefix="$(arg prefix)" tool_data="${tool_data['rob1']}" tool="$(arg tool)"/>
 
-  <!-- 'world' frame - default pose reference frame -->
+  <xacro:if value="$(arg include_ros2_control)">
+    <xacro:include filename="$(find za6_description)/urdf/za6.ros2_control.xacro"/>
+      <xacro:za6_ros2_control
+        name="$(arg ros2_control_name)"
+        prefix="$(arg prefix)"
+        use_mock_hardware="$(arg use_mock_hardware)"
+        initial_positions_file="$(arg initial_positions_file)"
+        ros2_control_plugin="$(arg ros2_control_plugin)"/>
+  </xacro:if>
+
   <link name="world"/>
   <joint name="world-$(arg prefix)base_link" type="fixed">
     <parent link="world"/>
     <child link="$(arg prefix)base_link"/>
   </joint>
-
-  <xacro:if value="$(arg include_hardware)">
-    <xacro:include filename="$(find za6_description)/urdf/za6.ros2_control.xacro"/>
-    <xacro:za6_ros2_control prefix="$(arg prefix)" use_mock_hardware="$(arg use_mock_hardware)"/>
-  </xacro:if>
 </robot>
